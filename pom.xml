@@ -18,7 +18,7 @@
   </properties>
 
   <dependencies>
-    <!--junit测试-->
+    <!--junit测试(log4j、slf4j)-->
     <!--4.11-->
     <dependency>
       <groupId>junit</groupId>
