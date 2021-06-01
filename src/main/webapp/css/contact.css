@@ -1,0 +1,79 @@
+.vci{
+    position: absolute;
+    top: 15px;
+    left: 15px;
+}
+
+.form-row{
+    position: relative;
+    margin: 15px;
+}
+.shang {
+    position: absolute;
+    top:0;
+}
+#content {
+    position: absolute;
+    right:3px ;
+}
+.select1{
+    position: absolute;
+    top: 327px;
+    left: 110px;
+}
+.contact-input{
+    border: 0.5px solid #b1191a ;
+    border-radius: 8px;
+}
+.send{
+    color: white;
+    background-color: #b1191a ;
+    width: 60px;height: 30px;
+    border: 0.5px solid #b1191a ;
+    border-radius: 8px;
+	cursor: pointer;
+}
+.contact{
+    text-align: center;
+    font-size:14px;
+    color: #b1191a;
+}
+.cl3{
+    color: #b1191a;
+    font-size: 20px;
+}
+.cl2{
+    position: sticky;
+    width: 1200px;
+    height:400px;
+    margin: auto;
+    box-sizing: border-box;
+    border:9px solid transparent;
+    -webkit-border-image:url(../images/bi.png) 30 30 stretch;
+    -o-border-image:url(../images/bi.png) 30 30 stretch;
+    border-image:url(../images/bi.png) 30 30 stretch;
+
+}
+.ziti{
+    font-size: 30px;
+}
+.cl4{
+    width: 300px;
+    height: 250px;
+    position: absolute;
+    right: 550px;
+    margin-top: 30px;
+    font-size: 15px;
+    color: #b1191a;
+}
+.cl5{
+    width: 530px;
+    height: 350px;
+    position: absolute;
+    right: 0;
+}
+.xz{
+    color: #b1191a;
+    font-size: 20px;
+}
+

@@ -1,0 +1,255 @@
+.shortcut .header.w .footer{
+    font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, PingFang SC, Microsoft YaHei, Simsun, Helvetica, Arial, serif;
+    font-size: 12px;
+}
+
+body .w1{
+    font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, PingFang SC, Microsoft YaHei, Simsun, Helvetica, Arial, serif;
+    font-size: 14px;
+    width: 80%;
+    margin: auto;
+}
+
+#all-goods{
+    font-size: 18px;
+    font-weight: bold;
+    color: RGB(206,41,61);
+    padding-bottom: 18px;
+}
+
+#th{
+    border: solid 1px  RGB(220,220,220);
+    background: RGB(245,245,245);
+    height: 45px;
+    font-size: 14px;
+}
+
+#d2{
+    width: 85%;
+    position: relative;
+    bottom: 12px;
+    left: 150px;
+}
+
+.goods-title{
+    width: 100%;
+}
+
+#th #d1{
+    font-size: 14px;
+    display: inline-block;
+    position: relative;
+    top: 12px;
+}
+
+#d1 input{
+    position: relative;
+    top: 2px;
+}
+.good{
+    width: 15px;
+    height: 15px;
+}
+
+#empty1{
+    width: 2%;
+}
+
+#empty2{
+    width: 25%;
+}
+
+#empty3{
+    width: 10%;
+}
+
+#empty4{
+    width: 7%;
+}
+
+#empty5{
+    width: 4%;
+}
+
+#goods .good-title tr{
+    display: inline-block;
+    width: 100%;
+    border-top: solid 1px RGB(220,220,220);
+}
+
+#goods .good-title td{
+   padding-bottom: 30px;
+}
+.good-title{
+    width: 100%;
+    margin-top: 5px;
+    border: solid 1px RGB(220,220,220);
+    border-top: solid 4px RGB(200,200,200);
+}
+
+.good-title .img{
+    width: 28%;
+}
+
+.img-b{
+    margin-left: 10px;
+    padding: 7.5px;
+}
+
+.desc{
+	font-size: 12.5px;
+    margin-left: 18px;
+    width: 200px;
+    display: inline-block;
+}
+
+.good-title .checkbox{
+    width: 2%;
+    text-align: center;
+}
+
+.good-title .operate{
+    width: 20%;
+    text-align: center;
+    position: relative;
+    left: 48px;
+}
+
+.good-title .price{
+    width: 23%;
+    text-align: center;
+    position: relative;
+    left: 80px;
+}
+
+.good-title .num{
+    width: 20%;
+    text-align: center;
+    position: relative;
+    left: 57px;
+}
+
+.good-title .subtotal{
+    width: 15%;
+    text-align: center;
+    position: relative;
+    left: 37px;
+}
+
+#goods-operation{
+    margin-top: 15px;
+    height: 65px;
+    border: solid 1px RGB(220,220,220);
+}
+
+#select-all-goods{
+    padding-left: 5px;
+    padding-right: 20px;
+    padding-top: 20px;
+    display: inline-block;
+}
+
+#select-all-goods input{
+    position: relative;
+    top: 2px;
+}
+
+#operation{
+    display: inline-block;
+    padding-top: 20px;
+}
+
+.remove{
+    padding-right: 15px;
+}
+
+.follow{
+    padding-right: 15px;
+}
+
+.clean{
+    font-weight: bold;
+}
+
+#total{
+    display: inline-block;
+    position: relative;
+    left: 500px;
+}
+
+#pay{
+    display: inline-block;
+    height: 65px;
+    width: 100px;
+    text-align: center;
+    background-color: RGB(230,67,71);
+    float: right;
+}
+
+#pay a{
+    width: 100%;
+    height: 100%;
+    padding-top: 18px;
+    display: inline-block;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+}
+
+#total strong{
+    font-size: 20px;
+    color: #b1191a;
+}
+
+#in-recommend{
+    height: 50px;
+    border: solid 2px RGB(245,245,245);
+    margin-top: 15px;
+}
+
+#recommend #guess{
+    display: inline-block;
+    padding: 15px 10px;
+    height: 100%;
+    font-size: 17px;
+    color: white;
+    font-weight: bold;
+    background-color: #c81623;
+}
+
+#recommend-goods .car-recommend{
+    height: 400px;
+    width: 280px;
+}
+
+.num span{
+    display: inline-block;
+    width: 90.5px;
+    height: 24.5px;
+    border: solid 2px RGB(210,210,210);
+}
+
+.good-title button{
+    height: 100%;
+    border: solid 1px RGB(200,200,200);
+}
+
+.button-reduce{
+    position: relative;
+    right: 11px;
+    bottom: 1.2px;
+}
+
+.button-add{
+    position: relative;
+    left:12px;
+    bottom: 1.2px;
+}
+.num span img{
+    width: 100%;
+    height: 100%;
+}
+
+.subtotal strong{
+    color: black;
+}

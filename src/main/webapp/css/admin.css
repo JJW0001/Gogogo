@@ -1,0 +1,113 @@
+@CHARSET "UTF-8";
+body, table, td, input, select, textarea{
+    font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+    font-size: 13px;
+}
+
+.w {
+    width: 1200px;
+    margin: 0 auto;
+}
+header {
+    height: 84px;
+    border-bottom: 2px solid #c81523;
+}
+.logo {
+    padding-top: 18px;
+}
+#logo-img {
+    width: 175px;
+    height: 60px;
+}
+.registerarea {
+    height: 522px;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+}
+.h3{
+    position: relative;
+}
+.registerarea h3 {
+    width: 1050px;
+    height: 42px;
+    border-bottom: 1px solid #ccc;
+    background-color: #ececec;
+    line-height: 42px;
+    padding: 0 10px;
+    font-size: 18px;
+    font-weight: 400;
+}
+.login {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 148px;
+    height: 42px;
+    text-align: center;
+    padding-top: 10px;
+    border-bottom: 1px solid #ccc;
+    background-color: #ececec;
+    font-size: 14px;
+}
+
+.login a {
+    color: #c81523;
+}
+
+h2.title{
+    font-family: 微软雅黑, serif;
+    font-weight: bold;
+    text-align: center;
+    color: #0000FF;
+}
+
+table {
+    /*设置相邻单元格的边框间的距离*/
+    border-spacing: 0;
+    /*表格设置合并边框模型*/
+    border-collapse: collapse;
+    text-align: center;
+    table-layout: fixed;
+    word-break:break-all;
+    word-wrap: break-word;
+    width: 100%;
+}
+table thead, tbody tr {
+    display: table;
+    width: 100%;
+    /*table-layout: fixed;*/
+}
+table tbody {
+    display: block;
+    height: 400px;
+    overflow-y: scroll;
+}
+table th {
+    background-color: #ccc;
+}
+table td {
+    padding: 10px 20px;
+    border: 1px solid skyblue;
+    width: 100px;
+    text-align: center;
+}
+.modify {
+    /*background-color: #ccc;*/
+}
+.modify a{
+    display: block;
+}
+.cont {
+    border: 0;
+}
+.first {
+    margin-right: 50px;
+}
+.price {
+    padding-left: 50px;
+
+}
+input[type=submit]{
+	cursor: pointer;
+}

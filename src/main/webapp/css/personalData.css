@@ -1,0 +1,117 @@
+@CHARSET "UTF-8";
+body, table, td, input, select, textarea{
+    font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+    font-size: 13px;
+}
+
+.w {
+    width: 1200px;
+    margin: 0 auto;
+}
+header {
+    height: 84px;
+    border-bottom: 2px solid #c81523;
+}
+.logo {
+    padding-top: 18px;
+}
+#logo-img {
+    width: 175px;
+    height: 60px;
+}
+.registerarea {
+    height: 522px;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+}
+.h3{
+    position: relative;
+}
+.registerarea h3 {
+    width: 1050px;
+    height: 42px;
+    border-bottom: 1px solid #ccc;
+    background-color: #ececec;
+    line-height: 42px;
+    padding: 0 10px;
+    font-size: 18px;
+    font-weight: 400;
+}
+.login {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 148.4px;
+    height: 42px;
+    text-align: center;
+    padding-top: 10px;
+    border-bottom: 1px solid #ccc;
+    background-color: #ececec;
+    font-size: 14px;
+}
+
+.login a {
+    color: #c81523;
+}
+
+h2.title{
+    font-family: 微软雅黑, serif;
+    font-weight: bold;
+    text-align: center;
+    color: #0000FF;
+}
+
+table.default{
+	margin: auto;
+	border: 1px solid #FFFFFF;
+	border-collapse: collapse;
+	width: 35%;
+}
+
+table.default th.item{
+	font-weight: bold;
+	color: #333333;
+	text-align: right;
+	vertical-align: center;
+	padding: 10pt;
+}
+
+table.default th,td{
+	padding: 2px 5px 2px 5px;
+	height: 26px;
+	border: 1px solid #FFFFFF;
+	background-color: #F0F0F0;
+}
+
+#head{
+    overflow: hidden;
+    display: inline-block;
+    text-align: center;
+    line-height: 60px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    margin-left: 570px;
+    margin-bottom: 5px;
+}
+#head img {
+    width: 100%;
+    height: 100%;
+}
+
+#select-confirm{
+	margin-left: 540px;
+}
+
+input[type=submit]{
+	margin-left: 32px;
+	margin-top: 7px;
+	margin-bottom: 7px;
+	border: 1px solid #ccc;
+}
+
+form{
+	padding-top: 90px;
+}

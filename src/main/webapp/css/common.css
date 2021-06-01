@@ -1,0 +1,338 @@
+.w {
+    width: 1200px;
+    margin: 0 auto;
+
+}
+@font-face {
+    font-family: 'icomoon';
+    src:  url('../fonts/icomoon.eot?tomleg');
+    src:  url('../fonts/icomoon.eot?tomleg#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?tomleg') format('truetype'),
+    url('../fonts/icomoon.woff?tomleg') format('woff'),
+    url('../fonts/icomoon.svg?tomleg#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+.fl {
+    float: left;
+}
+.fr {
+    float: right;
+}
+.style_red {
+    color: #c81623;
+}
+/*蹇嵎瀵艰埅鏍�*/
+.shortcut {
+    height: 30px;
+    line-height: 30px;
+    background-color: #f1f1f1;
+}
+.shortcut ul li {
+    float: left;
+}
+.shortcut .fr ul li:nth-child(even) {
+    width: 1px;
+    height: 12px;
+    background-color: #666666;
+    margin: 10px 15px 0 15px;
+}
+.arrow-icon:after {
+    content: '\e91e';
+    font-family: 'icomoon', serif;
+    margin-left: 6px;
+}
+.header {
+    position: relative;
+    height: 105px;
+
+}
+.logo {
+    position: absolute;
+    top: 25px;
+    width: 171px;
+    height: 61px;
+
+}
+.logo a {
+    display: block;
+    width: 175px;
+    height: 70px;
+    background: url("../images/logo333.png") no-repeat 100% 100%;
+
+    text-indent: -9999px;
+    overflow: hidden;
+}
+.search {
+    position: absolute;
+    width: 538px;
+    height: 36px;
+    top: 25px;
+    left: 346px;
+    border: 2px solid #b1191a;;
+    box-sizing: border-box;
+}
+.search-form{
+	height: 100%;
+	width: 100%;
+}
+.search-form .search-in{
+	height: 100%;
+	width: 85%;
+}
+.search-form .search-sub{
+	background-color: #b1191a;
+	font-size: 16px;
+	color: #ffffff;
+	height: 100%;
+	width: 76.5px;
+	cursor: pointer;
+}
+.search input[type="search"] {
+    float: left;
+    width: 454px;
+    height: 32px;
+    padding-left: 10px;
+}
+.search input[type="button"] {
+    float: left;
+    width: 80px;
+    height: 32px;
+    background-color: #b1191a;
+    font-size: 16px;
+    color: #ffffff;
+}
+.hotwords {
+    position: absolute;
+    left: 346px;
+    top: 66px;
+}
+.hotwords a {
+    margin: 0 10px;
+    font-size: 12px;
+}
+.shortcart {
+    position: absolute;
+    right: 60px;
+    top: 25px;
+    width: 140px;
+    height: 35px;
+    border: 1px solid #dfdfdf;
+    background-color: #f7f7f7;
+    line-height: 35px;
+    font-size: 12px;
+    color: #666666;
+    text-align: center;
+}
+.shortcart::before {
+    font-family: 'icomoon', serif;
+    content: '\e93a';
+    color: #b1191a;
+    margin-right: 5px;
+}
+.shortcart::after {
+    font-family: 'icomoon', serif;
+    content: '\e920';
+    margin-left: 10px;
+}
+.count {
+	font-size: 12px;
+    position: absolute;
+    left: 105px;
+    top: -5px;
+    border-radius: 7px 7px 7px 0;
+    height: 14px;
+    line-height: 14px;
+    color: #fff;
+    background-color: #e60012;
+    padding: 0 5px;
+}
+.nav {
+    position: relative;
+    height: 47px;
+    border-bottom: 2px solid #b1191a;
+
+}
+.nav .dropdown {
+    float: left;
+    width: 210px;
+    height: 45px;
+    background-color: #b1191a;
+}
+.nav .navitems {
+    float: left;
+}
+#displaydate {
+    position: absolute;
+    top: 20px;
+    right: 250px;
+    color: #c81623;
+}
+#displaytime {
+    position: absolute;
+    top: 20px;
+    right: 200px;
+    color: #c81623;
+}
+.dropdown .dt {
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    text-align: center;
+    line-height: 45px;
+    font-size: 16px;
+}
+.dropdown .dd {
+    display: block;
+    margin-top: 2px;
+    width: 100%;
+    height: 465px;
+    background-color: #c81623;
+}
+.dropdown .dd ul li {
+    position: relative;
+    height: 31px;
+    line-height: 31px;
+    margin-left: 2px;
+    padding-left: 10px;
+}
+.dropdown .dd ul li:hover {
+    background-color: #f7f7f7;
+
+}
+.dropdown .dd ul li:hover a {
+    color: #c81623;
+}
+.dropdown .dd ul li a {
+    font-size: 14px;
+    color: #ffffff;
+}
+.dropdown .dd ul li::after {
+    position: absolute;
+    top: 1px;
+    right: 10px;
+    font-family: 'icomoon', serif;
+    font-size: 14px;
+    content: '\e920';
+    color: #ffffff;
+}
+.navitems ul li {
+    float: left;
+    height: 45px;
+}
+.navitems ul li a {
+    display: block;
+    height: 45px;
+    line-height: 45px;;
+    padding: 0 25px;
+}
+.footer {
+    height: 415px;
+    background-color: #f5f5f5;
+    padding-top: 30px;
+    margin-top: 10px;
+}
+.mod_service {
+    height: 80px;
+    border-bottom: 1px solid #ccc;
+}
+.mod_service ul li {
+    float: left;
+    height: 50px;
+    width: 240px;
+    padding-left: 35px;
+}
+.mod_service ul li .img1 {
+    float: left;
+    width: 50px;
+    height: 50px;
+    background: url("../images/icons.png") no-repeat -252px -3px;
+}
+.mod_service ul li .img2 {
+    float: left;
+    width: 50px;
+    height: 50px;
+    background: url("../images/icons.png") no-repeat -255px -53px;
+}
+.mod_service ul li .img3 {
+    float: left;
+    width: 50px;
+    height: 50px;
+    background: url("../images/icons.png") no-repeat -256px -106px;
+}
+.mod_service ul li .img4 {
+    float: left;
+    width: 50px;
+    height: 50px;
+    background: url("../images/icons.png") no-repeat -258px -156px;
+}
+.mod_service ul li .img5 {
+    float: left;
+    width: 50px;
+    height: 50px;
+    background: url("../images/icons.png") no-repeat -256px -209px;
+}
+.service_txt h4 {
+    font-size: 14px;
+    font-weight: 700;
+    margin-right: 8px;
+}
+.service_txt p {
+    font-size: 12px;
+}
+.mod_help {
+    height: 185px;
+    border-bottom: 1px solid #ccc;
+    padding-top: 20px;
+    padding-left: 50px;
+}
+.mod_help dl {
+    float: left;
+    width: 200px;
+}
+.mod_help dl:last-child {
+    width: 90px;
+    text-align: center;
+}
+.mod_help dt {
+    font-size: 16px;
+    color: #333333;
+    margin-bottom: 10px;
+}
+.mod_help dd {
+    font-size: 12px;
+}
+.mod_copyright {
+    text-align: center;
+    padding-top: 20px;
+}
+.mod_copyright .links a {
+    margin: 0 3px;
+}
+.mod_copyright .copyright {
+    margin-top: 15px;
+    line-height: 20px;;
+}
+
+.cart-empty{
+	width: 80%;
+	height: 400px;
+	padding-left: 480px;
+	padding-top: 170px;
+}
+
+.cart-empty a{
+	color: blue;
+}
+#tip{
+	display: inline-block;
+	position: absolute;
+	left: 700px;
+	bottom: 400px;
+	background-color: #B4B4B4;
+    font-family: 正楷, 微软雅黑, serif;
+	color: #EEEEEE;
+	font-size: 14px;
+	border-radius: 1em;
+}
