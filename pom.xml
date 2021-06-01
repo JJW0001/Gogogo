@@ -20,7 +20,7 @@
   <dependencies>
     <dependency>
       <!--junit测试(log4j、slf4j)-->
-      <!--4.11-->
+      <!--4.11(1.2.17、1.7.25)-->
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>4.11</version>
