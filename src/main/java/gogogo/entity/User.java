@@ -73,6 +73,15 @@ public class User {
 	public void setUserEmail(String userEmail) {
 		this.userEmail = userEmail;
 	}
-	
-	
+
+	@Override
+	public String toString() {
+		return "User{" +
+				"userName='" + userName + '\'' +
+				", userPwd='" + userPwd + '\'' +
+				", userTel='" + userTel + '\'' +
+				", userEmail='" + userEmail + '\'' +
+				", userHead='" + userHead + '\'' +
+				'}';
+	}
 }

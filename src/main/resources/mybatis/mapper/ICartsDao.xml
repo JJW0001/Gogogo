@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="gogogo.dao.ICartsDao">
+    <!-- 加入购物车 -->
+    <select id="addCarts">
+        insert into carts values(null,#{userName},#{goodsNo},#{addNum},#{addTime})
+    </select>
+
+    <!--  修改购物车某商品数量 -->
+    <update id="updateCarts">
+        update carts set add_num=#{addNum} where user_name=#{userName} and goods_no=#{goodsNo}
+    </update>
+
+    <!--  获取某用户购物车  -->
+    <select id="getCart" resultType="java.util.HashMap">
+        select g.goods_no, g.cart_adr, g.goods_desc, g.goods_price, c.add_num
+            from carts c
+                join goods g
+                    on c.goods_no = g.goods_no
+                        where c.user_name = #{userName}
+                            order by add_time desc
+    </select>
+
+    <!--  删除某用户购物车某件商品  -->
+    <delete id="deleteUserCartGoods">
+        delete from carts where user_name = #{userName} and goods_no = #{goodsNo}
+    </delete>
+
+    <!--  获取某用户购物车中某件商品  -->
+    <select id="getGoods" resultType="map">
+        select * from user where user_name=#{userName} and user_pwd=#{userPwd}
+    </select>
+</mapper>

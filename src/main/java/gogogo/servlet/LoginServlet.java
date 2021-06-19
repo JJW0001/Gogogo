@@ -47,7 +47,7 @@ public class LoginServlet extends HttpServlet {
 			
 			Carts cart = new Carts(userName);
 			//获取某用户购物车信息
-			ArrayList<Object> userCart = (ArrayList<Object>)service1.getCart(cart);
+			ArrayList<Map<String,Object>> userCart = (ArrayList<Map<String,Object>>)service1.getCart(cart);
 			//得到某用户购物车中不同商品数量
 			int goodsNum = Calculation.getGoodsNum(userCart);
 			

@@ -5,15 +5,10 @@ import java.util.Map;
 
 import gogogo.entity.User;
 
+/**
+ * @author 86155
+ */
 public interface IUserDao {
-	/**
-	 * 查询用户是否已存在
-	 * @param userName 用户名
-	 * @return boolean
-	 */
-	boolean isEmpty(String userName);
-
-
 	/**
 	 * 添加用户
 	 * @param user 用户实体
@@ -50,7 +45,7 @@ public interface IUserDao {
 	 * 查找所有用户信息
 	 * @return List<Object>
 	 */
-	List<Object> getAllUser();
+	List<User> getAllUser();
 
 
 	/**
@@ -66,5 +61,5 @@ public interface IUserDao {
 	 * @param user 用户实体
 	 * @return boolean
 	 */
-	boolean login(User user);
+	User login(User user);
 }

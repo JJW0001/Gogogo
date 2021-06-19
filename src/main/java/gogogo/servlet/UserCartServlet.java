@@ -17,6 +17,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -36,9 +37,9 @@ public class UserCartServlet extends HttpServlet {
 		if(!"".equals(userName)){
 			Carts cart = new Carts(userName);
 			//获取某用户的购物车信息
-			List<Object> userCart = service.getCart(cart);
+			List<Map<String,Object>> userCart = service.getCart(cart);
 			
-			Iterator<Object> it = userCart.iterator();
+			Iterator<Map<String,Object>> it = userCart.iterator();
 			//若userCart中的元素个数为0，说明该用户购物车为空
 			if(!it.hasNext()){
 				HttpSession session = request.getSession(true);

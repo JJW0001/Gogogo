@@ -10,6 +10,13 @@ import gogogo.entity.User;
 public interface IUserService {
 
 	/**
+	 * 查询用户是否已存在
+	 * @param userName 用户名
+	 * @return boolean
+	 */
+	boolean isEmpty(String userName);
+
+	/**
 	 * 注册
 	 * @param user 用户实体
 	 * @return boolean

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="gogogo.dao.IUserDao">
+    <!-- 根据用户名查询用户信息 -->
+    <select id="searchUserByName" resultType="map">
+        select * from user where user_name = #{userName}
+    </select>
+
+    <!--添加用户-->
+    <insert id="addUser">
+        insert into user values(#{userName},#{userPwd},#{userTel},#{userEmail},#{userHead})
+    </insert>
+
+    <!--  修改用户信息 -->
+    <update id="updateUserInf">
+        update user
+            <set>
+                <if test="userPwd != null">
+                    user_pwd = #{userPwd},
+                </if>
+                <if test="userTel != null">
+                    user_tel = #{userTel},
+                </if>
+                <if test="userEmail != null">
+                    user_email = #{userEmail},
+                </if>
+                <if test="userHead != null">
+                    user_head = #{userHead},
+                </if>
+            </set>
+        where user_name = #{userName}
+    </update>
+
+    <!-- 更换头像 -->
+    <update id="updateUserHead">
+        update user set user_head=#{userHead} where user_name=#{userName}
+    </update>
+
+    <!--  查找所有用户信息  -->
+    <select id="getAllUser" resultType="gogogo.entity.User">
+        select user_name, user_pwd, user_tel, user_email, user_head from user
+    </select>
+
+    <!--  通过用户名删除用户  -->
+    <delete id="deleteUserByName">
+        delete from user where user_name=#{userName}
+    </delete>
+
+    <!--  用户登录  -->
+    <select id="login" resultType="gogogo.entity.User">
+        select * from user where user_name=#{userName} and user_pwd=#{userPwd}
+    </select>
+</mapper>

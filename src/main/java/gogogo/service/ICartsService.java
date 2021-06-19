@@ -1,6 +1,7 @@
 package gogogo.service;
 
 import java.util.List;
+import java.util.Map;
 
 import gogogo.entity.Carts;
 
@@ -21,7 +22,7 @@ public interface ICartsService {
 	 * @param cart cartsÊµÌå
 	 * @return List<Object>
 	 */
-	List<Object> getCart(Carts cart);
+	List<Map<String,Object>> getCart(Carts cart);
 
 
 	/**

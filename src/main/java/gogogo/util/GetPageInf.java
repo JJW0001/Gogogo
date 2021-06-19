@@ -1,7 +1,6 @@
 package gogogo.util;
 
 import gogogo.bean.PageBean;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
@@ -20,12 +19,7 @@ public class GetPageInf {
 	 */
 	private static final int PAGE_SIZE = 2*5;
 
-	private JdbcTemplate jdbcTemplate;
-
-	@Autowired
-	public GetPageInf(JdbcTemplate jdbcTemplate) {
-		this.jdbcTemplate = jdbcTemplate;
-	}
+	private JdbcTemplate jdbcTemplate = new JdbcTemplate();
 
 	/**
 	 * 执行数据库查询操作时，返回结果的记录总数。

@@ -14,11 +14,21 @@ import java.util.Map;
 @Service
 public class UserServiceImpl implements IUserService {
 
-	private IUserDao iud;
+	private final IUserDao iud;
 
 	@Autowired
 	public UserServiceImpl(IUserDao iud) {
 		this.iud = iud;
+	}
+
+	/**
+	 * 查询用户是否已存在
+	 * @param userName 用户名
+	 * @return boolean
+	 */
+	@Override
+	public boolean isEmpty(String userName){
+		return iud.searchUserByName(userName) == null;
 	}
 
 	/**
@@ -29,7 +39,7 @@ public class UserServiceImpl implements IUserService {
 	@Override
     public boolean addUser(User user) {
 		//先查询该用户名是否被注册过
-		if(iud.isEmpty(user.getUserName()))
+		if(isEmpty(user.getUserName()))
 		{
 			return iud.addUser(user);
 		} else {
@@ -45,7 +55,7 @@ public class UserServiceImpl implements IUserService {
 	 */
 	@Override
 	public boolean login(User user){
-		return iud.login(user);
+		return iud.login(user) != null;
 	}
 
 

@@ -1,27 +1,28 @@
 package gogogo.service.impl;
 
 import gogogo.dao.ICartsDao;
+import gogogo.dao.IGoodsDao;
 import gogogo.entity.Carts;
 import gogogo.service.ICartsService;
-import gogogo.service.IGoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author 86155
  */
 @Service
 public class CartsServiceImpl implements ICartsService {
-	private ICartsDao icd;
-	private IGoodsService igs;
+	private final ICartsDao icd;
+	private final IGoodsDao igd;
 
 	@Autowired
-	public CartsServiceImpl(ICartsDao icd, IGoodsService igs) {
+	public CartsServiceImpl(ICartsDao icd, IGoodsDao igd) {
 		this.icd = icd;
-		this.igs = igs;
+		this.igd = igd;
 	}
 
 	/**
@@ -33,16 +34,19 @@ public class CartsServiceImpl implements ICartsService {
 	@Transactional(rollbackFor = Exception.class)
 	@Override
     public boolean addCart(Carts cart) {
-		//goodsNum参数带有carts_no和add_num
-		Object[] goodsNum = icd.getGoodsNum(cart.getUserName(), cart.getGoodsNo());
-		//要加入购物车的商品以及存在购物车中
-		if(goodsNum!=null){
-			cart.setCartsNo((int)goodsNum[0]);
-			cart.setAddNum((int)goodsNum[1]+1);
+		/*
+		先查询购物车中是否存在某样商品，若不存在则新加入购物车，若存在则更新数量
+		 */
+		Map<String, Object> goods = icd.getGoods(cart);
+		if(goods == null){
+			igd.reduceStock(cart.getGoodsNo());
+			icd.addCarts(cart);
+		}else{
+			cart.setCartsNo((int)goods.get("carts_no"));
+			cart.setAddNum((int)goods.get("add_num")+1);
+			return icd.updateCarts(cart);
 		}
 
-		igs.reduceStock(cart.getGoodsNo());
-		icd.addCarts(cart);
 		return true;
 	}
 
@@ -53,7 +57,7 @@ public class CartsServiceImpl implements ICartsService {
 	 * @return List<Object>
 	 */
 	@Override
-	public List<Object> getCart(Carts cart) {
+	public List<Map<String,Object>> getCart(Carts cart) {
 		return icd.getCart(cart);
 	}
 
@@ -66,7 +70,8 @@ public class CartsServiceImpl implements ICartsService {
 	@Transactional(rollbackFor = Exception.class)
 	@Override
 	public boolean deleteUserCartGoods(Carts cart) {
-		igs.addStock(cart.getGoodsNo(),(int)icd.getGoodsNum(cart.getUserName(), cart.getGoodsNo())[1]);
+		Map<String, Object> goods = icd.getGoods(cart);
+		igd.addStock(cart.getGoodsNo(),(int)goods.get("add_num"));
 		icd.deleteUserCartGoods(cart);
 		return true;
 	}
@@ -79,7 +84,7 @@ public class CartsServiceImpl implements ICartsService {
 	 */
 	@Override
 	public boolean isEmpty(Carts cart) {
-		return icd.isEmpty(cart);
+		return icd.getGoods(cart) == null;
 	}
 
 }
