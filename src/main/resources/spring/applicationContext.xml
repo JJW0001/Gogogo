@@ -39,11 +39,6 @@
         <property name="basePackage" value="gogogo.dao"/>
     </bean>
 
-    <!---JdbcTemPlate-->
-   <!-- <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
-        <property name="dataSource" ref="comboPooledDataSource"/>
-    </bean>-->
-
     <!--配置事务管理器（aop），让其进行事务控制-->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="comboPooledDataSource"/>

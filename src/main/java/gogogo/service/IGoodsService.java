@@ -4,11 +4,19 @@ import gogogo.bean.PageBean;
 import gogogo.entity.Goods;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author 86155
  */
 public interface IGoodsService {
+
+	/**
+	 * 查询商品是否已存在
+	 * @param goodsNo 商品编号
+	 * @return boolean
+	 */
+	boolean isEmpty(String goodsNo);
 
 	/**
 	 * 添加商品
@@ -19,22 +27,22 @@ public interface IGoodsService {
 
 	/**
 	 * 查找所有商品
-	 * @return List<Object>
+	 * @return List<Map<String,Object>>
 	 */
-	List<Object> getAllGoods();
+	List<Map<String,Object>> getAllGoods();
 
 	/**
 	 * 查找所有手机
-	 * @return List<Object>
+	 * @return List<Map<String,Object>>
 	 */
-	List<Object> getAllPhone();
+	List<Map<String,Object>> getAllPhone();
 
 
 	/**
-	 * 查找所有商品
-	 * @return List<Object>
+	 * 查找所有鞋子
+	 * @return List<Map<String,Object>>
 	 */
-	List<Object> getAllShoes();
+	List<Map<String,Object>> getAllShoes();
 
 
 	/**

@@ -4,10 +4,12 @@ import gogogo.bean.PageBean;
 import gogogo.dao.IGoodsDao;
 import gogogo.entity.Goods;
 import gogogo.service.IGoodsService;
+import gogogo.util.GetPageInf;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author 86155
@@ -16,10 +18,22 @@ import java.util.List;
 public class GoodsServiceImpl implements IGoodsService {
 	
 	private final IGoodsDao igd;
+	private final GetPageInf gpi;
 
 	@Autowired
-	public GoodsServiceImpl(IGoodsDao igd) {
+	public GoodsServiceImpl(IGoodsDao igd, GetPageInf gpi) {
 		this.igd = igd;
+		this.gpi = gpi;
+	}
+
+	/**
+	 * 查询商品是否已存在
+	 * @param goodsNo 商品编号
+	 * @return boolean
+	 */
+	@Override
+	public boolean isEmpty(String goodsNo){
+		return igd.searchGoodsById(goodsNo) == null;
 	}
 
 	/**
@@ -29,7 +43,7 @@ public class GoodsServiceImpl implements IGoodsService {
 	 */
 	@Override
 	public boolean purchase(Goods goods){
-		if(igd.isEmpty(goods.getGoodsNo())) {
+		if(isEmpty(goods.getGoodsNo())) {
 			return igd.purchase(goods);
 		} else {
 			return false;
@@ -42,7 +56,7 @@ public class GoodsServiceImpl implements IGoodsService {
 	 * @return List<Object>
 	 */
 	@Override
-	public List<Object> getAllGoods(){
+	public List<Map<String,Object>> getAllGoods(){
 		return igd.getAllGoods();
 	}
 
@@ -54,7 +68,8 @@ public class GoodsServiceImpl implements IGoodsService {
 	 */
 	@Override
 	public PageBean getAllGoods(int curPage){
-		return igd.getAllGoods(curPage);
+		String sql = "select * from goods order by goods_stock";
+		return gpi.getPageBean(sql, null, curPage);
 	}
 
 
@@ -63,7 +78,7 @@ public class GoodsServiceImpl implements IGoodsService {
 	 * @return List<Object>
 	 */
 	@Override
-	public List<Object> getAllPhone(){
+	public List<Map<String,Object>> getAllPhone(){
 		return igd.getAllPhone();
 	}
 
@@ -73,7 +88,7 @@ public class GoodsServiceImpl implements IGoodsService {
 	 * @return List<Object>
 	 */
 	@Override
-	public List<Object> getAllShoes(){
+	public List<Map<String,Object>> getAllShoes(){
 		return igd.getAllShoes();
 	}
 
@@ -86,7 +101,9 @@ public class GoodsServiceImpl implements IGoodsService {
 	 */
 	@Override
 	public PageBean search(String parameter, int curPage) {
-		return igd.search(parameter, curPage);
+		String sql = "select * from goods where goods_desc like ?";
+		Object[] params = {parameter};
+		return gpi.getPageBean(sql, params, curPage);
 	}
 
 
@@ -118,7 +135,7 @@ public class GoodsServiceImpl implements IGoodsService {
 	 */
 	@Override
 	public int reduceStock(String goodsNo) {
-		return igd.reduceStock(goodsNo);
+		return igd.cutStock(goodsNo);
 	}
 
 	/**

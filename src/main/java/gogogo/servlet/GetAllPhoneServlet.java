@@ -13,12 +13,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Map;
 
 /**
  * @author 86155
  */
 @WebServlet("/GetAllPhoneServlet")
-public class GetAllPhoneServlet extends HttpServlet {
+public class  GetAllPhoneServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	IGoodsService service = WebUtil.getBean(IGoodsService.class);
@@ -30,7 +31,7 @@ public class GetAllPhoneServlet extends HttpServlet {
 		String tip = request.getParameter("tip");
 		
 		//获取所有手机
-		ArrayList<Object> allPhone = (ArrayList<Object>)service.getAllPhone();
+		ArrayList<Map<String,Object>> allPhone = (ArrayList<Map<String,Object>>)service.getAllPhone();
 		
 		request.setAttribute("tip", tip);
 		request.setAttribute("allPhone", allPhone);

@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Map;
 
 /**
  * @author 86155
@@ -30,7 +31,7 @@ public class GetAllShoesServlet extends HttpServlet {
 		String tip = request.getParameter("tip");
 		
 		//获取所有鞋子
-		ArrayList<Object> allShoes = (ArrayList<Object>)service.getAllShoes();
+		ArrayList<Map<String,Object>> allShoes = (ArrayList<Map<String,Object>>)service.getAllShoes();
 		
 		request.setAttribute("tip", tip);
 		request.setAttribute("allShoes", allShoes);

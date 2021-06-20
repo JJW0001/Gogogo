@@ -4,9 +4,9 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="gogogo.dao.ICartsDao">
     <!-- 加入购物车 -->
-    <select id="addCarts">
-        insert into carts values(null,#{userName},#{goodsNo},#{addNum},#{addTime})
-    </select>
+    <insert id="addCarts">
+        insert into carts values(#{cartsNo},#{userName},#{goodsNo},#{addNum},#{addTime})
+    </insert>
 
     <!--  修改购物车某商品数量 -->
     <update id="updateCarts">
@@ -30,6 +30,6 @@
 
     <!--  获取某用户购物车中某件商品  -->
     <select id="getGoods" resultType="map">
-        select * from user where user_name=#{userName} and user_pwd=#{userPwd}
+        select * from carts where user_name=#{userName} and goods_no=#{goodsNo}
     </select>
 </mapper>

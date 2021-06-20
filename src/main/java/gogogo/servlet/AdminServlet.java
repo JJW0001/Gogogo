@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author 86155
@@ -26,7 +27,7 @@ public class AdminServlet extends HttpServlet {
     
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<Object> allGoods = service.getAllGoods();
+		List<Map<String, Object>> allGoods = service.getAllGoods();
 		
 		HttpSession  session = request.getSession(true);
 		String userName = (String)session.getAttribute("userName");

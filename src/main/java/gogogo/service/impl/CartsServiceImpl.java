@@ -39,12 +39,13 @@ public class CartsServiceImpl implements ICartsService {
 		 */
 		Map<String, Object> goods = icd.getGoods(cart);
 		if(goods == null){
-			igd.reduceStock(cart.getGoodsNo());
+			igd.cutStock(cart.getGoodsNo());
 			icd.addCarts(cart);
 		}else{
 			cart.setCartsNo((int)goods.get("carts_no"));
 			cart.setAddNum((int)goods.get("add_num")+1);
-			return icd.updateCarts(cart);
+			igd.cutStock(cart.getGoodsNo());
+			icd.updateCarts(cart);
 		}
 
 		return true;

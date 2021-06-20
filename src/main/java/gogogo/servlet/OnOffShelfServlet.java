@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -36,7 +37,7 @@ public class OnOffShelfServlet extends HttpServlet {
 		//执行商品的上下架
 		boolean check = service.onOffShelf(goods);
 		//获取所有商品
-		List<Object> allGoods = service.getAllGoods();
+		List<Map<String,Object>> allGoods = service.getAllGoods();
 		/*
 		 * 上下架提示
 		 */

@@ -14,7 +14,6 @@ import java.util.Map;
 /**
  * @author 86155
  */
-@Deprecated
 public class DbUtil {
 	/**
 	 *链接数据库信息（驱动、数据库、用户名、密码)
