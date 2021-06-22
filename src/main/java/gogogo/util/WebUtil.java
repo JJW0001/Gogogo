@@ -6,6 +6,7 @@ import org.springframework.web.context.WebApplicationContext;
 /**
  * @author 86155
  */
+@Deprecated
 public class WebUtil {
     public static <T>T getBean(Class<T> tClass){
         WebApplicationContext ioc = ContextLoader.getCurrentWebApplicationContext();

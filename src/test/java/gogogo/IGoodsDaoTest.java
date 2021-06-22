@@ -1,9 +1,7 @@
 package gogogo;
 
-import gogogo.bean.PageBean;
 import gogogo.dao.IGoodsDao;
 import gogogo.entity.Goods;
-import gogogo.service.ICartsService;
 import gogogo.service.IGoodsService;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -42,10 +40,8 @@ public class IGoodsDaoTest {
      */
     @Test
     public void testGetAllGoodsPage(){
-        PageBean allGoods = goodsService.getAllGoods(1);
-        for (Map<String,Object> map : allGoods.getData()){
-            System.out.println(map);
-        }
+
+
     }
 
     /**
@@ -53,10 +49,7 @@ public class IGoodsDaoTest {
      */
     @Test
     public void testGetAllPhone(){
-        List<Map<String, Object>> allPhone = goodsService.getAllPhone();
-        for (Map<String, Object> map : allPhone){
-            System.out.println(map);
-        }
+
     }
 
     /**
@@ -64,10 +57,7 @@ public class IGoodsDaoTest {
      */
     @Test
     public void testGetAllShoes(){
-        List<Map<String, Object>> allShoes = goodsService.getAllShoes();
-        for (Map<String, Object> map : allShoes){
-            System.out.println(map);
-        }
+
     }
 
     /**
@@ -75,10 +65,7 @@ public class IGoodsDaoTest {
      */
     @Test
     public void testSearch(){
-        PageBean search = goodsService.search("%HUAWEI%", 1);
-        for (Map<String, Object> map : search.getData()){
-            System.out.println(map);
-        }
+
     }
 
     /**

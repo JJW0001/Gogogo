@@ -30,7 +30,7 @@ public interface ICartsDao {
 	/**
 	 * 获取某用户购物车
 	 * @param cart carts实体
-	 * @return List<Object>
+	 * @return List
 	 */
 	List<Map<String,Object>> getCart(Carts cart);
 

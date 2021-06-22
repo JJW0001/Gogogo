@@ -3,6 +3,7 @@
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
+<% pageContext.setAttribute("ctp", request.getContextPath()); %>
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -19,7 +20,7 @@
 </head>
 <body>
 
-						<!--若注册失败则提示-->
+						<!--注册成功或失败提示-->
 						<c:if test = "${requestScope.alert!=null}">
 							<script type="text/javascript">
 								alert("${requestScope.alert}");
@@ -39,7 +40,7 @@
             <div class="login">我有账号，去<a href="login.jsp">登陆</a></div>
         </div>
         <div class="reg_form">
-            <form name="form1" onSubmit="return check();" method="post" action="AddUserServlet">
+            <form name="form1" onSubmit="return check();" method="post" action="${ctp}/register">
                 <ul>
                     <li class="b_bottom">
                         <label for="userName">用户名：</label>

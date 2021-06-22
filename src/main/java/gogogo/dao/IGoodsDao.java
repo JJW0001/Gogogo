@@ -64,9 +64,9 @@ public interface IGoodsDao {
 	/**
 	 * 上下架
 	 * @param goods 商品实体
-	 * @return int
+	 * @return boolean
 	 */
-	int onOffShelf(Goods goods);
+	boolean onOffShelf(Goods goods);
 
 	/**
 	 * 减库存

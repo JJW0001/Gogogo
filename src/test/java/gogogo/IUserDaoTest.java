@@ -8,7 +8,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.List;
-import java.util.Map;
 
 public class IUserDaoTest {
     private final ApplicationContext ioc = new ClassPathXmlApplicationContext("spring/applicationContext.xml");
@@ -20,8 +19,7 @@ public class IUserDaoTest {
      */
     @Test
     public void testUpdate() {
-        Map<String, Object> userByName = userService.searchUserByName("www");
-        System.out.println(userByName);
+
     }
 
     /**
@@ -50,7 +48,7 @@ public class IUserDaoTest {
     @Test
     public void testUpdateHead(){
         User user = new User("jjw", null,null,null,"images/WIN_20191023_17_57_47_Pro.jpg");
-        boolean login = userService.updateUserHead(user);
+        boolean login = userService.updateUserHead();
         System.out.println(login);
     }
 
@@ -59,8 +57,7 @@ public class IUserDaoTest {
      */
     @Test
     public void testGetUser(){
-        Map<String, Object> user = userService.searchUserByName("wjj");
-        System.out.println(user);
+
     }
 
     /**

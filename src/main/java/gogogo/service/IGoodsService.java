@@ -21,9 +21,9 @@ public interface IGoodsService {
 	/**
 	 * 添加商品
 	 * @param goods 商品实体
-	 * @return boolean
+	 * @return String
 	 */
-	boolean purchase(Goods goods);
+	String purchase(Goods goods);
 
 	/**
 	 * 查找所有商品
@@ -33,33 +33,30 @@ public interface IGoodsService {
 
 	/**
 	 * 查找所有手机
-	 * @return List<Map<String,Object>>
+	 * @return String
 	 */
-	List<Map<String,Object>> getAllPhone();
+	String getAllPhone();
 
 
 	/**
 	 * 查找所有鞋子
-	 * @return List<Map<String,Object>>
+	 * @return String
 	 */
-	List<Map<String,Object>> getAllShoes();
+	String getAllShoes();
 
 
 	/**
 	 * 查找所有商品,分页显示
-	 * @param curPage 当前页数
-	 * @return PageBean
+	 * @return String
 	 */
-	PageBean getAllGoods(int curPage);
+	String getAllGoodsPage();
 
 
 	/**
 	 * 商品搜索
-	 * @param parameter 搜索关键字
-	 * @param curPage  当前页数
-	 * @return PageBean
+	 * @return String
 	 */
-	PageBean search(String parameter, int curPage);
+	String search();
 
 	/**
 	 * 更新商品信息
@@ -72,9 +69,9 @@ public interface IGoodsService {
 	/**
 	 * 上下架
 	 * @param goods 商品实体
-	 * @return boolean
+	 * @return String
 	 */
-	boolean onOffShelf(Goods goods);
+	String onOffShelf(Goods goods);
 
 	/**
 	 * 减库存

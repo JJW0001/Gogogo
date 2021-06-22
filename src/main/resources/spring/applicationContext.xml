@@ -3,16 +3,24 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
                            http://www.springframework.org/schema/beans/spring-beans.xsd
                            http://www.springframework.org/schema/context
                            http://www.springframework.org/schema/context/spring-context-4.2.xsd
                            http://www.springframework.org/schema/tx
-                           http://www.springframework.org/schema/tx/spring-tx-4.2.xsd">
+                           http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
+                           http://www.springframework.org/schema/aop
+                           http://www.springframework.org/schema/aop/spring-aop-4.2.xsd">
 
-    <context:component-scan base-package="gogogo"/>
+    <!-- 除了控制器，其它包都扫描 -->
+    <context:component-scan base-package="gogogo">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
     <!--引入数据源配置文件-->
     <context:property-placeholder location="classpath:dbconfig.properties"/>
+
     <!--配置数据源-->
     <bean id="comboPooledDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
         <property name="user" value="${jdbc.username}"/>
@@ -45,5 +53,7 @@
     </bean>
     <!--开启基于注解的事务控制模式-->
     <tx:annotation-driven/>
+    <!--  开启基于注解得切面编程  -->
+    <aop:aspectj-autoproxy/>
 </beans>
 
