@@ -68,4 +68,15 @@ public class Carts {
 	public void setAddTime(String addTime) {
 		this.addTime = addTime;
 	}
+
+	@Override
+	public String toString() {
+		return "Carts{" +
+				"cartsNo=" + cartsNo +
+				", userName='" + userName + '\'' +
+				", goodsNo='" + goodsNo + '\'' +
+				", addNum=" + addNum +
+				", addTime='" + addTime + '\'' +
+				'}';
+	}
 }

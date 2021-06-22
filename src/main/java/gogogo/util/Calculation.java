@@ -12,11 +12,11 @@ public class Calculation {
 	/**
 	 * 计算总价
 	 */
-	public static float getTotalPrice(List<Object> userCart){
+	public static float getTotalPrice(List<Map<String,Object>> userCart){
 		float totalPrice = 0;
 		for(Object o : userCart){
 			@SuppressWarnings("unchecked")
-			Map<String, Object> map = (Map<String, Object>)o;
+			Map<String, Object> map = (HashMap<String, Object>)o;
 			totalPrice +=  (float)map.get("goods_price")*(int)map.get("add_num");
 		}
 		return totalPrice;
@@ -26,7 +26,7 @@ public class Calculation {
 	/**
 	 * 获取购物车不同商品数量
 	 */
-	public static int getGoodsNum(List<Object> userCart) {
+	public static int getGoodsNum(List<Map<String,Object>> userCart) {
 		int goodsNum = 0;
 
 		for (Object o : userCart) {

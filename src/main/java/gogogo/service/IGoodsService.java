@@ -4,6 +4,7 @@ import gogogo.bean.PageBean;
 import gogogo.entity.Goods;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author 86155
@@ -11,47 +12,51 @@ import java.util.List;
 public interface IGoodsService {
 
 	/**
-	 * 添加商品
-	 * @param goods 商品实体
+	 * 查询商品是否已存在
+	 * @param goodsNo 商品编号
 	 * @return boolean
 	 */
-	boolean purchase(Goods goods);
+	boolean isEmpty(String goodsNo);
+
+	/**
+	 * 添加商品
+	 * @param goods 商品实体
+	 * @return String
+	 */
+	String purchase(Goods goods);
 
 	/**
 	 * 查找所有商品
-	 * @return List<Object>
+	 * @return List<Map<String,Object>>
 	 */
-	List<Object> getAllGoods();
+	List<Map<String,Object>> getAllGoods();
 
 	/**
 	 * 查找所有手机
-	 * @return List<Object>
+	 * @return String
 	 */
-	List<Object> getAllPhone();
+	String getAllPhone();
 
 
 	/**
-	 * 查找所有商品
-	 * @return List<Object>
+	 * 查找所有鞋子
+	 * @return String
 	 */
-	List<Object> getAllShoes();
+	String getAllShoes();
 
 
 	/**
 	 * 查找所有商品,分页显示
-	 * @param curPage 当前页数
-	 * @return PageBean
+	 * @return String
 	 */
-	PageBean getAllGoods(int curPage);
+	String getAllGoodsPage();
 
 
 	/**
 	 * 商品搜索
-	 * @param parameter 搜索关键字
-	 * @param curPage  当前页数
-	 * @return PageBean
+	 * @return String
 	 */
-	PageBean search(String parameter, int curPage);
+	String search();
 
 	/**
 	 * 更新商品信息
@@ -64,9 +69,9 @@ public interface IGoodsService {
 	/**
 	 * 上下架
 	 * @param goods 商品实体
-	 * @return boolean
+	 * @return String
 	 */
-	boolean onOffShelf(Goods goods);
+	String onOffShelf(Goods goods);
 
 	/**
 	 * 减库存

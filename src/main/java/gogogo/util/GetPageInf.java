@@ -1,11 +1,11 @@
 package gogogo.util;
 
 import gogogo.bean.PageBean;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -19,13 +19,6 @@ public class GetPageInf {
 	 * 每页两行，每行5个商品
 	 */
 	private static final int PAGE_SIZE = 2*5;
-
-	private JdbcTemplate jdbcTemplate;
-
-	@Autowired
-	public GetPageInf(JdbcTemplate jdbcTemplate) {
-		this.jdbcTemplate = jdbcTemplate;
-	}
 
 	/**
 	 * 执行数据库查询操作时，返回结果的记录总数。
@@ -45,7 +38,7 @@ public class GetPageInf {
 		}
 
 		try {
-			oneField = jdbcTemplate.queryForMap(countSql,params);
+			oneField = DbUtil.getOneField(countSql,params);
 		}catch (EmptyResultDataAccessException e){
 			e.printStackTrace();
 		}
@@ -65,14 +58,19 @@ public class GetPageInf {
 	 * @return PageBean
 	 */
 	public PageBean getPageBean(String sql, Object[] params, int curPage){
+		List<Map<String, Object>> newDate = new ArrayList<Map<String, Object>>();
+
 		String newSql = sql + " limit " + (curPage-1)* PAGE_SIZE +","+ PAGE_SIZE;
-		System.out.println(jdbcTemplate);
-		List<Map<String, Object>> data = jdbcTemplate.queryForList(newSql,params);
+		List<Object> data = DbUtil.getAllFields(newSql,params);
+		for (Object o : data){
+			Map<String, Object> map = (HashMap<String, Object>)o;
+			newDate.add(map);
+		}
 		PageBean pb=new PageBean();
 		pb.setCurPage(curPage);
 		pb.setPageSize(PAGE_SIZE);
 		pb.setTotalRows(getTotalRows(sql, params));
-		pb.setData(data);
+		pb.setData(newDate);
 		return pb;
 	}
 }

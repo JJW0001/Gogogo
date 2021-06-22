@@ -1,7 +1,7 @@
 package gogogo.dao;
 
-import gogogo.bean.PageBean;
 import gogogo.entity.Goods;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 import java.util.Map;
@@ -10,14 +10,6 @@ import java.util.Map;
  * @author 86155
  */
 public interface IGoodsDao {
-	/**
-	 * 查询商品是否已存在
-	 * @param goodsNo 商品编号
-	 * @return boolean
-	 */
-	boolean isEmpty(String goodsNo);
-
-
 	/**
 	 * 添加商品
 	 * @param goods 商品实体
@@ -46,30 +38,21 @@ public interface IGoodsDao {
 	 * 查找所有手机
 	 * @return List<Object>
 	 */
-	List<Object> getAllPhone();
+	List<Map<String,Object>> getAllPhone();
 
 
 	/**
 	 * 查找所有鞋类
 	 * @return List<Object>
 	 */
-	List<Object> getAllShoes();
+	List<Map<String,Object>> getAllShoes();
 
 
 	/**
-	 * 查找所有商品信息
+	 * 查找所有商品信息(包括未上架)
 	 * @return List<Object>
 	 */
-	List<Object> getAllGoods();
-
-
-	/**
-	 * 查找所有商品,分页显示
-	 * @param curPage 当前所在页数
-	 * @return PageBean
-	 */
-	PageBean getAllGoods(int curPage);
-
+	List<Map<String,Object>> getAllGoods();
 
 	/**
 	 * 通过商品编号删除商品
@@ -78,28 +61,19 @@ public interface IGoodsDao {
 	 */
 	boolean deleteGoodsById(String goodsNo);
 
-
-	/**
-	 * 搜索商品
-	 * @param parameter 搜索关键字
-	 * @param curPage 当前所在页数
-	 * @return PageBean
-	 */
-	PageBean search(String parameter, int curPage);
-
 	/**
 	 * 上下架
 	 * @param goods 商品实体
-	 * @return int
+	 * @return boolean
 	 */
-	int onOffShelf(Goods goods);
+	boolean onOffShelf(Goods goods);
 
 	/**
 	 * 减库存
 	 * @param goodsNo 商品编号
 	 * @return int
 	 */
-	int reduceStock(String goodsNo);
+	int cutStock(String goodsNo);
 
 	/**
 	 * 加库存
@@ -107,5 +81,5 @@ public interface IGoodsDao {
 	 * @param num 数量
 	 * @return int
 	 */
-	int addStock(String goodsNo, int num);
+	int addStock(@Param("goodsNo") String goodsNo, @Param("num") int num);
 }

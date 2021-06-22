@@ -4,10 +4,19 @@ import java.util.Map;
 
 import gogogo.entity.User;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * @author 86155
  */
 public interface IUserService {
+
+	/**
+	 * 查询用户是否已存在
+	 * @param userName 用户名
+	 * @return boolean
+	 */
+	boolean isEmpty(String userName);
 
 	/**
 	 * 注册
@@ -27,16 +36,15 @@ public interface IUserService {
 
 	/**
 	 * 更换头像
-	 * @param user 用户实体
 	 * @return  boolean
 	 */
-	boolean updateUserHead(User user);
+	boolean updateUserHead();
 
 
 	/**
 	 * 获取用户信息
 	 * @param userName 用户名
-	 * @return Map<String, Object>
+	 * @return String
 	 */
-	Map<String, Object> searchUserByName(String userName);
+	String searchUserByName(String userName);
 }

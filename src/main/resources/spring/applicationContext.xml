@@ -3,26 +3,48 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
                            http://www.springframework.org/schema/beans/spring-beans.xsd
                            http://www.springframework.org/schema/context
                            http://www.springframework.org/schema/context/spring-context-4.2.xsd
                            http://www.springframework.org/schema/tx
-                           http://www.springframework.org/schema/tx/spring-tx-4.2.xsd">
+                           http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
+                           http://www.springframework.org/schema/aop
+                           http://www.springframework.org/schema/aop/spring-aop-4.2.xsd">
 
-    <context:component-scan base-package="gogogo"/>
+    <!-- 除了控制器，其它包都扫描 -->
+    <context:component-scan base-package="gogogo">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
     <!--引入数据源配置文件-->
     <context:property-placeholder location="classpath:dbconfig.properties"/>
+
     <!--配置数据源-->
     <bean id="comboPooledDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
         <property name="user" value="${jdbc.username}"/>
         <property name="password" value="${jdbc.password}"/>
         <property name="jdbcUrl" value="${jdbc.jdbcUrl}"/>
         <property name="driverClass" value="${jdbc.driverClass}"/>
+        <property name="maxPoolSize" value="${jdbc.maxPoolSize}"/>
+        <property name="minPoolSize" value="${jdbc.minPoolSize}"/>
     </bean>
-    <!---JdbcTemPlate-->
-    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+
+    <!-- 配置sqlSessionFactory -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!-- 数据库连接池 -->
         <property name="dataSource" ref="comboPooledDataSource"/>
+        <!-- 加载Mybatis全局配置文件 -->
+        <property name="configLocation" value="classpath:mybatis/mybatis-config.xml"/>
+        <!-- 指定xml文件位置 -->
+        <property name="mapperLocations" value="classpath:mybatis/mapper/*.xml"/>
+    </bean>
+
+    <!-- 配置mapper扫描器 -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!-- 扫描包路径，如果需要扫描多个包中间用半角逗号隔开 -->
+        <property name="basePackage" value="gogogo.dao"/>
     </bean>
 
     <!--配置事务管理器（aop），让其进行事务控制-->
@@ -31,19 +53,7 @@
     </bean>
     <!--开启基于注解的事务控制模式-->
     <tx:annotation-driven/>
+    <!--  开启基于注解得切面编程  -->
+    <aop:aspectj-autoproxy/>
 </beans>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

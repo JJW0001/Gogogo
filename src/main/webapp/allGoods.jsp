@@ -91,7 +91,7 @@
     <!-- search搜索模块 -->
     <div class="search">
     	<form action="SearchServlet" method="post" class="search-form">
-    		<input class="search-in" name="search" type="text" placeholder="iphone">
+    		<input class="search-in" name="search" type="text" value="iphone" placeholder="iphone">
         	<input class="search-sub" type="submit" value="搜索">
     	</form>
     </div>
